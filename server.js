@@ -4,9 +4,8 @@ const express = require("express");
 const favicon = require("serve-favicon");
 const bodyParser = require("body-parser");
 const session = require("express-session");
-// const csrf = require('csurf');
-const consolidate = require("consolidate"); // Templating library adapter for Express
-const swig = require("swig");
+const csrf = require('csurf');
+/bin/bash: line 1: :WQ: command not found
 // const helmet = require("helmet");
 const MongoClient = require("mongodb").MongoClient; // Driver for connecting to MongoDB
 const http = require("http");
@@ -101,7 +100,7 @@ MongoClient.connect(db, (err, db) => {
 
     }));
 
-    /*
+    
     // Fix for A8 - CSRF
     // Enable Express csrf protection
     app.use(csrf());
@@ -110,7 +109,7 @@ MongoClient.connect(db, (err, db) => {
         res.locals.csrftoken = req.csrfToken();
         next();
     });
-    */
+    
 
     // Register templating engine
     app.engine(".html", consolidate.swig);
